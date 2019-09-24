@@ -20,6 +20,8 @@ Here are instructions for building and running this container on Kubernetes.
 First, we need to build the container with Docker.
 
 ```
+$ git clone https://github.com/cmeiklejohn/kubernetes-hello-world-example.git
+$ cd kubernetes-hello-world-example
 $ docker build -t ${IMAGE} . 
 ```
 
