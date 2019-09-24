@@ -13,6 +13,8 @@ This application is available as two Docker images, which respond to requests
 
 # Running
 
+Here are instructions for running this container.
+
 ## Common Instructions
 
 Here's the commands to run the application using a given image.  These instructions
