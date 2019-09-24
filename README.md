@@ -11,13 +11,21 @@ This directory contains:
 
 This application is available as two Docker images, which respond to requests
 
-# Running
+# Installation and Running Container
 
-Here are instructions for running this container.
+Here are instructions for building and running this container on Kubernetes.
 
-## Common Instructions
+## Docker
 
-Once you bootstrap a cluster, the following commands can be used to launch an image using Kubernetes on that cluster.
+First, we need to build the container with Docker.
+
+```
+$ docker build -t ${IMAGE} . 
+```
+
+## Kubernetes
+
+Once you bootstrap a cluster, the following commands can be used to launch an image using Kubernetes on that cluster, regardless of the cloud provider.
 
 ```
 $ kubectl create deployment hello-web --image=${IMAGE}
