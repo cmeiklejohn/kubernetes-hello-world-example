@@ -78,6 +78,15 @@ $ gcloud container clusters delete hello-cluster
 
 ### Amazon Elastic Kubernetes Service
 
+Here are installation instructions for Ubuntu.
+
+```
+pip install awscli --upgrade --user
+aws configure
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/download/latest_release/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+sudo mv /tmp/eksctl /usr/local/bin
+```
+
 The following bootstraps a cluster with Amazon Elastic Kubernetes Service.
 
 ```
