@@ -13,7 +13,10 @@ This application is available as two Docker images, which respond to requests
 
 # Running
 
-Here's the commands to run the application using a given image.
+## Common Instructions
+
+Here's the commands to run the application using a given image.  These instructions
+are applicable to any cluster, once deployed on the appropriate cloud provider.
 
 ```
 $ kubectl create deployment hello-web --image=${IMAGE}
@@ -36,4 +39,17 @@ Remember to clean up after youself!
 
 ```
 $ kubectl delete service hello-web
+```
+
+## Google Kubernetes Engine
+
+The following bootstrap and terminate a cluster on Google Kubernetes Engine.
+
+```
+$ gcloud config set project $PROJECT_ID
+$ gcloud config set compute/zone us-east1-b
+$ gcloud container clusters create hello-cluster --num-nodes=2
+$ gcloud container clusters get-credentials hello-cluster
+$ # Common instructions go here.
+$ gcloud container clusters delete hello-cluster
 ```
