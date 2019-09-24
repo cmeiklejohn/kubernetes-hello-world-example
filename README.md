@@ -17,8 +17,7 @@ Here are instructions for running this container.
 
 ## Common Instructions
 
-Here's the commands to run the application using a given image.  These instructions
-are applicable to any cluster, once deployed on the appropriate cloud provider.
+Once you bootstrap a cluster, the following commands can be used to launch an image using Kubernetes on that cluster.
 
 ```
 $ kubectl create deployment hello-web --image=${IMAGE}
