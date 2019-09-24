@@ -104,14 +104,22 @@ $ eksctl delete cluster --name hello-cluster
 Here are installation instructions for Ubuntu.
 
 ```
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+az login
+az aks install-cli
 ```
 
 The following bootstraps a cluster with Azure Kubernetes Service.
 
 ```
+az group create --name hello-app --location eastus
+az aks create --resource-group hello-app --name hello-cluster --node-count 1 --enable-addons monitoring --generate-ssh-keys
+az aks get-credentials --resource-group hello-app --name hello-cluster
 ```
 
 The following terminates a cluster with Azure Kubernetes Service.
 
 ```
+az aks delete --resource-group hello-app --name hello-cluster
+az group delete --name hello-app
 ```
