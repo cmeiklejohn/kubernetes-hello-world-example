@@ -56,9 +56,9 @@ $ # Common instructions go here.
 $ gcloud container clusters delete hello-cluster
 ```
 
-## Amazon Kubernetes Engine
+## Amazon Elastic Kubernetes Service
 
-The following bootstraps and terminates a cluster with Amazon Kubernetes Engine.
+The following bootstraps and terminates a cluster with Amazon Elastic Kubernetes Service.
 
 ```
 $ eksctl create cluster --name hello-cluster \
