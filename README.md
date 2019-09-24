@@ -45,7 +45,7 @@ $ kubectl delete service hello-web
 
 ## Google Kubernetes Engine
 
-The following bootstrap and terminate a cluster on Google Kubernetes Engine.
+The following bootstraps and terminates a cluster with Google Kubernetes Engine.
 
 ```
 $ gcloud config set project $PROJECT_ID
@@ -54,4 +54,21 @@ $ gcloud container clusters create hello-cluster --num-nodes=2
 $ gcloud container clusters get-credentials hello-cluster
 $ # Common instructions go here.
 $ gcloud container clusters delete hello-cluster
+```
+
+## Amazon Kubernetes Engine
+
+The following bootstraps and terminates a cluster with Amazon Kubernetes Engine.
+
+```
+$ eksctl create cluster --name hello-cluster \
+    --version 1.14 \
+    --nodegroup-name standard-workers \
+    --node-type t3.medium \
+    --nodes 3 \
+    --nodes-min 1 \
+    --nodes-max 4 \
+    --node-ami auto
+$ # Common instructions go here.
+$ eksctl delete cluster --name hello-cluster
 ```
