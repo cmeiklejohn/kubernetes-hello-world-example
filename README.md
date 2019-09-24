@@ -52,7 +52,7 @@ $ gcloud config set project $PROJECT_ID
 $ gcloud config set compute/zone us-east1-b
 $ gcloud container clusters create hello-cluster --num-nodes=2
 $ gcloud container clusters get-credentials hello-cluster
-$ # Common instructions go here.
+# Common instructions go here.
 $ gcloud container clusters delete hello-cluster
 ```
 
@@ -69,6 +69,6 @@ $ eksctl create cluster --name hello-cluster \
     --nodes-min 1 \
     --nodes-max 4 \
     --node-ami auto
-$ # Common instructions go here.
+# Common instructions go here.
 $ eksctl delete cluster --name hello-cluster
 ```
