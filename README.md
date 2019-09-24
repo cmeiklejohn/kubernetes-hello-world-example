@@ -24,19 +24,19 @@ $ kubectl create deployment hello-web --image=${IMAGE}
 $ kubectl expose deployment hello-web --type=LoadBalancer --port 80 --target-port 8080
 ```
 
-Now, wait until the service has an external IP address assigned to it.
+Now, wait until the service has an external IP address assigned to it.  This process, depending on the cloud provider, could take a number of minutes to complete.
 
 ```
 $ kubectl get service | grep LoadBalancer | awk '{print $4}' 
 ```
 
-Now, ensure the service works.
+Now, ensure the service works by using `curl` to access the web server.  Make sure you see the proper response from the service.  You may have to wait for DNS to update to allow the hostname to resolve.
 
 ```
 $ curl `kubectl get service | grep LoadBalancer | awk '{print $4}' `
 ```
 
-Remember to clean up after youself!
+Remember to clean up after youself and remove the deployment and service.
 
 ```
 $ kubectl delete service hello-web
