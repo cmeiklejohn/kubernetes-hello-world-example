@@ -71,17 +71,14 @@ $ gcloud container clusters delete hello-cluster
 
 ## Amazon Elastic Kubernetes Service
 
-The following bootstraps and terminates a cluster with Amazon Elastic Kubernetes Service.
+The following bootstraps a cluster with Amazon Elastic Kubernetes Service.
 
 ```
-$ eksctl create cluster --name hello-cluster \
-    --version 1.14 \
-    --nodegroup-name standard-workers \
-    --node-type t3.medium \
-    --nodes 3 \
-    --nodes-min 1 \
-    --nodes-max 4 \
-    --node-ami auto
-# Common instructions go here.
+$ eksctl create cluster --name hello-cluster --version 1.14 --nodegroup-name standard-workers --node-type t3.medium --nodes 3 --nodes-min 1 --nodes-max 4 --node-ami auto
+```
+
+The following terminates a cluster with Amazon Elastic Kubernetes Service.
+
+```
 $ eksctl delete cluster --name hello-cluster
 ```
