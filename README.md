@@ -125,3 +125,108 @@ The following terminates a cluster with Azure Kubernetes Service.
 az aks delete --resource-group hello-app --name hello-cluster
 az group delete --name hello-app
 ```
+
+## Uploading a Confidential Container
+
+Here are instructions for each cloud provider on uploading a confidential container using each services container registry.
+
+### Google Kubernetes Engine
+
+With Google, uploading and running a secure container is quite easy.
+
+```
+gcloud auth configure-docker
+docker tag ${IMAGE} gcr.io/${PROJECT_ID}/hello-app
+docker push gcr.io/${PROJECT_ID}/hello-app
+```
+
+### Amazon Elastic Kubernetes Service
+
+First, create a container registry instance in the correct region through the user interface.  Then, complete the following steps.
+
+```
+aws ecr get-login --region ${REGION}--no-include-email
+```
+
+This should return a Docker command that can be used to log into the registry.  Then, do the following to push the containers.
+
+```
+docker tag ${IMAGE} ${ACCOUNT}.dkr.ecr.${REGION}.amazonaws.com/hello-app
+docker push ${ACCOUNT}.dkr.ecr.${REGION}.amazonaws.com/hello-app
+```
+
+Next, create a secret in Kubernetes using a Docker authorization token.
+
+```
+export TOKEN=`aws ecr --region=$REGION get-authorization-token --output text --query authorizationData[].authorizationToken | base64 -d | cut -d: -f2`
+export SECRET_NAME=${REGION}-ecr-registry
+export EMAIL=email@email.com
+kubectl delete secret --ignore-not-found $SECRET_NAME
+kubectl create secret docker-registry $SECRET_NAME \
+ --docker-server=https://${ACCOUNT}.dkr.ecr.${REGION}.amazonaws.com \
+ --docker-username=AWS \
+ --docker-password="${TOKEN}" \
+ --docker-email="${EMAIL}"
+```
+
+Then, update the secret you created in the Kubernetes deployment configuration.
+
+```
+      imagePullSecrets:
+      - name: ${SECRET_NAME}
+```
+
+### Microsoft Azure Kubernetes Service
+
+REPLACE ME WITH ENVIRONMENT VARIABLES
+
+First, start by creating a container registry and log in.
+
+```
+az acr create --resource-group hello-app --name helloapp --sku Basic
+az acr login --name helloapp
+az acr list --resource-group hello-app --query "[].{acrLoginServer:loginServer}" --output table
+```
+
+Then, tag and upload the image.
+
+```
+docker tag cmeiklejohn/hello-app helloapp.azurecr.io/hello-app:v1
+docker push helloapp.azurecr.io/hello-app:v1
+```
+
+Then, create a service principal (save the output.)
+
+```
+az ad sp create-for-rbac --skip-assignment
+```
+
+Then, get the ACR resource identifier (save the output.)
+
+```
+az acr show --resource-group hello-app --name helloapp --query "id" --output tsv
+```
+
+Then, grant the service principal permission to pull from ACR.
+
+```
+az role assignment create --assignee <appId> --scope <acrId> --role acrpull
+```
+
+Now, create your cluster using the service principal.
+
+```
+az aks create --resource-group hello-app \
+    --name hello-cluster \
+    --node-count 1 \
+    --enable-addons monitoring \
+    --generate-ssh-keys \
+    --service-principal <appId> \
+    --client-secret <password>
+```
+
+Then, get the credentials.
+
+```
+az aks get-credentials --resource-group hello-app --name hello-cluster
+```

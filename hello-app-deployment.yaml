@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: hello-app
-        image: ${IMAGE}
+        image: helloapp.azurecr.io/hello-app:v1
         resources:
           requests:
             cpu: 100m
@@ -19,5 +19,3 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
-      imagePullSecrets:
-      - name: ${SECRET_NAME}
