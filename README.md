@@ -30,8 +30,7 @@ docker build -t ${IMAGE} .
 Once you bootstrap a cluster, the following commands can be used to launch an image using Kubernetes on that cluster, regardless of the cloud provider.
 
 ```
-kubectl create deployment hello-web --image=${IMAGE}
-kubectl expose deployment hello-web --type=LoadBalancer --port 80 --target-port 8080
+kubectl create -f .
 ```
 
 Now, wait until the service has an external IP address assigned to it.  This process, depending on the cloud provider, could take a number of minutes to complete.
@@ -49,7 +48,8 @@ curl `kubectl get service | grep LoadBalancer | awk '{print $4}' `
 Remember to clean up after youself and remove the deployment and service.
 
 ```
-kubectl delete service hello-web
+kubectl delete service hello-app
+kubectl delete deployment hello-app
 ```
 
 ### Google Kubernetes Engine
