@@ -149,7 +149,7 @@ docker push gcr.io/${PROJECT_ID}/hello-app
 First, create a container registry instance in the correct region through the user interface.  Then, complete the following steps.
 
 ```
-aws ecr get-login --region ${REGION}--no-include-email
+aws ecr get-login --region ${REGION} --no-include-email
 ```
 
 This should return a Docker command that can be used to log into the registry.  Then, do the following to push the containers.
