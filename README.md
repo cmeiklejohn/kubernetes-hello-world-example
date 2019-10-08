@@ -178,8 +178,6 @@ Then, update the secret you created in the Kubernetes deployment configuration.
 
 ### Microsoft Azure Kubernetes Service
 
-REPLACE ME WITH ENVIRONMENT VARIABLES
-
 First, start by creating a container registry and log in.
 
 ```
