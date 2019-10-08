@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: hello-app
-        image: cmeiklejohn/hello-app
+        image: ${IMAGE}
         resources:
           requests:
             cpu: 100m
@@ -19,3 +19,5 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
+      imagePullSecrets:
+      - name: ${SECRET_NAME}

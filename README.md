@@ -42,7 +42,7 @@ kubectl get service | grep LoadBalancer | awk '{print $4}'
 Now, ensure the service works by using `curl` to access the web server.  Make sure you see the proper response from the service.  You may have to wait for DNS to update to allow the hostname to resolve.
 
 ```
-curl `kubectl get service | grep LoadBalancer | awk '{print $4}' `
+curl `kubectl get service | grep LoadBalancer | awk '{print $4}' `:8080
 ```
 
 Remember to clean up after youself and remove the deployment and service.
