@@ -185,16 +185,18 @@ Then, update the secret you created in the Kubernetes deployment configuration.
 First, start by creating a container registry and log in.
 
 ```
-az acr create --resource-group hello-app --name helloapp --sku Basic
-az acr login --name helloapp
-az acr list --resource-group hello-app --query "[].{acrLoginServer:loginServer}" --output table
+export RESOURCE_GROUP=hello-app
+export REGISTRY=helloapp
+az acr create --resource-group ${RESOURCE_GROUP} --name ${REGISTRY} --sku Basic
+az acr login --name ${REGISTRY}
+az acr list --resource-group ${RESOURCE_GROUP} --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
 Then, tag and upload the image.
 
 ```
-docker tag cmeiklejohn/hello-app helloapp.azurecr.io/hello-app:v1
-docker push helloapp.azurecr.io/hello-app:v1
+docker tag ${IMAGE} ${REGISTRY}.azurecr.io/hello-app:v1
+docker push {$REGISTRY}.azurecr.io/hello-app:v1
 ```
 
 Then, create a service principal (save the output.)
@@ -206,7 +208,7 @@ az ad sp create-for-rbac --skip-assignment
 Then, get the ACR resource identifier (save the output.)
 
 ```
-az acr show --resource-group hello-app --name helloapp --query "id" --output tsv
+az acr show --resource-group ${RESOURCE_GROUP} --name ${REGISTRY} --query "id" --output tsv
 ```
 
 Then, grant the service principal permission to pull from ACR.
@@ -218,7 +220,7 @@ az role assignment create --assignee <appId> --scope <acrId> --role acrpull
 Now, create your cluster using the service principal.
 
 ```
-az aks create --resource-group hello-app \
+az aks create --resource-group ${RESOURCE_GROUP}-app \
     --name hello-cluster \
     --node-count 1 \
     --enable-addons monitoring \
@@ -230,5 +232,5 @@ az aks create --resource-group hello-app \
 Then, get the credentials.
 
 ```
-az aks get-credentials --resource-group hello-app --name hello-cluster
+az aks get-credentials --resource-group ${RESOURCE_GROUP} --name hello-cluster
 ```
