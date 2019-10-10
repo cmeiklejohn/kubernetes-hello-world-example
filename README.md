@@ -30,7 +30,8 @@ docker build -t ${IMAGE} .
 Once you bootstrap a cluster, the following commands can be used to launch an image using Kubernetes on that cluster, regardless of the cloud provider.
 
 ```
-kubectl create -f .
+kubectl create deployment hello-web --image=${IMAGE}
+kubectl expose deployment hello-web --type=LoadBalancer --port 8080 --target-port 8080
 ```
 
 Now, wait until the service has an external IP address assigned to it.  This process, depending on the cloud provider, could take a number of minutes to complete.
@@ -157,27 +158,6 @@ This should return a Docker command that can be used to log into the registry.  
 ```
 docker tag ${IMAGE} ${ACCOUNT}.dkr.ecr.${REGION}.amazonaws.com/hello-app
 docker push ${ACCOUNT}.dkr.ecr.${REGION}.amazonaws.com/hello-app
-```
-
-Next, create a secret in Kubernetes using a Docker authorization token.
-
-```
-export TOKEN=`aws ecr --region=$REGION get-authorization-token --output text --query 'authorizationData[].authorizationToken' | base64 --decode | cut -d: -f2`
-export SECRET_NAME=${REGION}-ecr-registry
-export EMAIL=email@email.com
-kubectl delete secret --ignore-not-found $SECRET_NAME
-kubectl create secret docker-registry $SECRET_NAME \
- --docker-server=https://${ACCOUNT}.dkr.ecr.${REGION}.amazonaws.com \
- --docker-username=AWS \
- --docker-password="${TOKEN}" \
- --docker-email="${EMAIL}"
-```
-
-Then, update the secret you created in the Kubernetes deployment configuration.
-
-```
-      imagePullSecrets:
-      - name: ${SECRET_NAME}
 ```
 
 ### Microsoft Azure Kubernetes Service
