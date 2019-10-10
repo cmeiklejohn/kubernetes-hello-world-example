@@ -176,7 +176,7 @@ Then, tag and upload the image.
 
 ```
 docker tag ${IMAGE} ${REGISTRY}.azurecr.io/hello-app:v1
-docker push {$REGISTRY}.azurecr.io/hello-app:v1
+docker push ${REGISTRY}.azurecr.io/hello-app:v1
 ```
 
 Then, create a service principal (save the output.)
