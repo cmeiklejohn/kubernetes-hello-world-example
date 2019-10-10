@@ -200,7 +200,7 @@ az role assignment create --assignee <appId> --scope <acrId> --role acrpull
 Now, create your cluster using the service principal.
 
 ```
-az aks create --resource-group ${RESOURCE_GROUP}-app \
+az aks create --resource-group ${RESOURCE_GROUP} \
     --name hello-cluster \
     --node-count 1 \
     --enable-addons monitoring \
