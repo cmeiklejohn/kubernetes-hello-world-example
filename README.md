@@ -162,7 +162,7 @@ docker push ${ACCOUNT}.dkr.ecr.${REGION}.amazonaws.com/hello-app
 Next, create a secret in Kubernetes using a Docker authorization token.
 
 ```
-export TOKEN=`aws ecr --region=$REGION get-authorization-token --output text --query authorizationData[].authorizationToken | base64 -d | cut -d: -f2`
+export TOKEN=`aws ecr --region=$REGION get-authorization-token --output text --query 'authorizationData[].authorizationToken' | base64 --decode | cut -d: -f2`
 export SECRET_NAME=${REGION}-ecr-registry
 export EMAIL=email@email.com
 kubectl delete secret --ignore-not-found $SECRET_NAME
