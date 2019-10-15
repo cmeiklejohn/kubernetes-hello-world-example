@@ -62,6 +62,7 @@ echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
 sudo apt-get update && sudo apt-get install google-cloud-sdk
 gcloud components install kubectl
+gcloud auth login
 ```
 
 The following bootstraps a cluster with Google Kubernetes Engine.
