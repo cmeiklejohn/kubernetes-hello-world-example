@@ -1,13 +1,21 @@
 # Deploy a container in Azure
 
-The goal of this task is to deploy a container in Azure. 
+The goal of this task is to run a container in Azure.
+
+## Context
+
+You are the CEO of a startup and have been working on your application for the past 3 years. 
+Your application will be bought by Google for $1M in the in 2 days.
+As part of the purchase, Google wants you to give a live demo of you application to its employees.
+You decide to create a Docker container with your application and deploy online for the demo.
 
 This directory contains:
 
-- `main.go` contains the HTTP server implementation. It responds to all HTTP
+- `main.go` contains your application. It is an HTTP server that responds to all HTTP
   requests with a  `Hello, world!` response.
 - `Dockerfile` is used to build the Docker image for the application. This file will copy all contents of this directory in the image.
-- `credentials.txt` contains your Azure username and password.
+
+## Task
 
 The following instructions indicate the steps that need to be followed to complete the task:
 1. Build the image with Docker.
@@ -33,7 +41,7 @@ The ``` ${IMAGE} ``` is the name and optionally the tag, in the ‘name:tag’ f
 
 **2. Upload your image to an online registry provider.**
 
-You will use the command line to upload your image.
+You will use the command line to upload your image. You have the choice of uploading your container in Docker Hub or Azure.
 
 **3. Create an cluster with Azure Kubernetes Service.**
 

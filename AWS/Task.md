@@ -1,18 +1,26 @@
-# Deploy a container in GCP
+# Deploy a container in AWS
 
-The goal of this task is to deploy a container in GCP. 
+The goal of this task is to run a container in AWS.
+
+## Context
+
+You are the CEO of a startup and have been working on your application for the past 3 years. 
+Your application will be bought by Google for $1M in the in 2 days.
+As part of the purchase, Google wants you to give a live demo of you application to its employees.
+You decide to create a Docker container with your application and deploy online for the demo.
 
 This directory contains:
 
-- `main.go` contains the HTTP server implementation. It responds to all HTTP
+- `main.go` contains your application. It is an HTTP server that responds to all HTTP
   requests with a  `Hello, world!` response.
 - `Dockerfile` is used to build the Docker image for the application. This file will copy all contents of this directory in the image.
-- `credentials.txt` contains your GCP username and password.
+
+## Task
 
 The following instructions indicate the steps that need to be followed to complete the task:
 1. Build the image with Docker.
 2. Upload your image to an online registry provider.
-3. Create a Google Kubernetes Engine.
+3. Create an Amazon Elastic Kubernetes Service.
 4. Launch the image using Kubernetes on the cluster you created.
 5. Get an external IP address assigned to the service.
 6. Ensure that you can access the running web server.
@@ -33,18 +41,13 @@ The ``` ${IMAGE} ``` is the name and optionally the tag, in the ‘name:tag’ f
 
 **2. Upload your image to an online registry provider.**
 
-You will use the command line to upload your image.
+You will use the command line to upload your image. You have the choice of uploading your container in Docker Hub or AWS.
 
-**3. Create a Google Kubernetes Engine.**
+**3. Create an Amazon Elastic Kubernetes Service.**
 
 ```
-gcloud config set project $PROJECT_ID
-gcloud config set compute/zone us-east1-b
-gcloud container clusters create hello-cluster --num-nodes=2
-gcloud container clusters get-credentials hello-cluster
+eksctl create cluster --name hello-cluster --version 1.14 --nodegroup-name standard-workers --node-type t2.micro --nodes 3 --nodes-min 1 --nodes-max 4 --node-ami auto
 ```
-
-TODO: WHAT IS `$PROJECT_ID`
 
 **4. Launch the image using Kubernetes on the cluster you created.**
 
@@ -76,5 +79,5 @@ kubectl delete deployment hello-app
 **8. Terminate the cluster.**
 
 ```
-gcloud container clusters delete hello-cluster
+eksctl delete cluster --name hello-cluster
 ```
