@@ -41,7 +41,7 @@ The ``` ${IMAGE} ``` is the name and optionally the tag, in the ‘name:tag’ f
 
 **2. Upload your image to an online registry provider.**
 
-You will use the command line to upload your image.
+You will use the command line to upload your image. You have the choice of uploading your container in Docker Hub or AWS.
 
 **3. Create an Amazon Elastic Kubernetes Service.**
 
