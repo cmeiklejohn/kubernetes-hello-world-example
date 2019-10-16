@@ -11,7 +11,7 @@ You decide to create a Docker container with your application and deploy online 
 
 This directory contains:
 
-- `main.go` contains your application. It is an HTTP server that responds to all HTTP
+- `main.go` contains your application. It is an HTTP server that responds to all HTTP 
   requests with a  `Hello, world!` response.
 - `Dockerfile` is used to build the Docker image for the application. This file will copy all contents of this directory in the image.
 
