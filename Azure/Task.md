@@ -31,7 +31,6 @@ In the following paragraphs, we describe each step in detail and, in some steps,
 *Please note, your image name cannot contain an underscore.*
 
 ```
-git clone https://github.com/cmeiklejohn/kubernetes-hello-world-example.git
 cd kubernetes-hello-world-example
 docker build -t ${IMAGE} . 
 ```
