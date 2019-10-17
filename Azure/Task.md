@@ -81,12 +81,12 @@ If you see "ImagePullBackoff", your image could not be pulled. You may have spec
 **6. Remove the deployment and service.**
 
 ```
-kubectl delete deployment hello-app
+kubectl delete deployment hello-web
 ```
 
 **7. Terminate the cluster.**
 
 ```
-az aks delete --resource-group hello-app --name hello-cluster
-az group delete --name hello-app
+az aks delete --resource-group hello-web --name hello-cluster
+az group delete --name hello-web
 ```
