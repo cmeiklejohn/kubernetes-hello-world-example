@@ -32,10 +32,8 @@ In the following paragraphs, we describe each step in detail and, in some steps,
 
 ```
 cd kubernetes-hello-world-example
-docker build -t ${IMAGE} . 
+docker build -t <your_image_name> . 
 ```
-
-The ``` ${IMAGE} ``` is the name and optionally the tag, in the ‘name:tag’ format, that you assign to the image.
 
 **2. Upload your image to an online registry provider.**
 
@@ -67,7 +65,7 @@ az aks get-credentials --resource-group hello-app --name hello-cluster
 **4. Launch the image using Kubernetes on the cluster you created.**
 
 ```
-kubectl create deployment hello-web --image=${IMAGE}
+kubectl create deployment hello-web --image=<the_image_name>
 ```
 
 **5. Ensure that the container is running.**
