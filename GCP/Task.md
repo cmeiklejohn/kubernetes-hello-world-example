@@ -40,7 +40,7 @@ docker build -t <your_image_name> .
 
 You will use the command line to upload your image. 
 
-You have the choice of uploading your container in either:
+You have the choice of uploading your container in either of the following.  It might be useful to view each documentation using the following links before making your choice.
 
 - [Docker Hub](https://docs.docker.com/engine/reference/commandline/push/) 
 - [Google Container Registry](https://cloud.google.com/container-registry/docs/quickstart) 
