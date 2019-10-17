@@ -22,10 +22,9 @@ The following instructions indicate the steps that need to be followed to comple
 2. Upload your image to an online registry provider.
 3. Create a Google Kubernetes Engine.
 4. Launch the image using Kubernetes on the cluster you created.
-5. Get an external IP address assigned to the service.
-6. Ensure that you can access the running web server.
-7. Remove teh deployment and service.
-8. Terminate the cluster.
+5. Ensure that the container is running.
+6. Remove teh deployment and service.
+7. Terminate the cluster.
 
 In the following paragraphs, we describe each step in detail and, in some steps, we provide commands that you need to execute to complete that subtask. For the subtasks in which we do not specific a command, you need to find those commands online.
 
@@ -34,14 +33,16 @@ In the following paragraphs, we describe each step in detail and, in some steps,
 ```
 git clone https://github.com/cmeiklejohn/kubernetes-hello-world-example.git
 cd kubernetes-hello-world-example
-docker build -t ${IMAGE} . 
+docker build -t <your_image_name> . 
 ```
-
-The ``` ${IMAGE} ``` is the name and optionally the tag, in the ‘name:tag’ format, that you assign to the image.
 
 **2. Upload your image to an online registry provider.**
 
-You will use the command line to upload your image. You have the choice of uploading your container in Docker Hub or GCP.
+You will use the command line to upload your image. You have the choice of uploading your container in "Docker Hub" or "Google Container Registry".
+
+- If you choose Docker Hub, credential will be provided to you. 
+- If you choose Google Container Registry, a ``` ${PROJECT_ID} ``` will be provided to you.
+
 
 **3. Create a Google Kubernetes Engine.**
 
@@ -52,36 +53,31 @@ gcloud container clusters create hello-cluster --num-nodes=2
 gcloud container clusters get-credentials hello-cluster
 ```
 
-TODO: WHAT IS `$PROJECT_ID`
-
 **4. Launch the image using Kubernetes on the cluster you created.**
 
 ```
-kubectl create deployment hello-web --image=${IMAGE}
+kubectl create deployment hello-web --image=<image_you_uploaded>
 kubectl expose deployment hello-web --type=LoadBalancer --port 8080 --target-port 8080
 ```
 
-**5. Get an external IP address assigned to the service.**
+**5. Ensure that the container is running.**
 
 ```
-kubectl get service | grep LoadBalancer | awk '{print $4}' 
+kubectl get pods
 ```
 
-**6. Ensure that you can access the running web server.**
+Make sure that the container status is "Running". 
+
+If you see "ImagePullBackoff", your image could not be pulled. You may have specified the image name incorrectly. Follow step 6 and return to step 4.
+
+**6. Remove the deployment and service.**
 
 ```
-curl `kubectl get service | grep LoadBalancer | awk '{print $4}' `:8080
+kubectl delete service hello-web
+kubectl delete deployment hello-web
 ```
 
-
-**7. Remove the deployment and service.**
-
-```
-kubectl delete service hello-app
-kubectl delete deployment hello-app
-```
-
-**8. Terminate the cluster.**
+**7. Terminate the cluster.**
 
 ```
 gcloud container clusters delete hello-cluster
