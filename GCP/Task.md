@@ -38,7 +38,7 @@ docker build -t <your_image_name> .
 
 **2. Upload your image to an online registry provider.**
 
-You will use the command line to upload your image. You have the choice of uploading your container in "Docker Hub" or "Google Container Registry".
+You will use the command line to upload your image. You have the choice of uploading your container in [Docker Hub](https://docs.docker.com/engine/reference/commandline/push/) or [Google Container Registry](https://cloud.google.com/container-registry/docs/quickstart).
 
 - If you choose Docker Hub, credential will be provided to you. 
 - If you choose Google Container Registry, a ``` ${PROJECT_ID} ``` will be provided to you.
