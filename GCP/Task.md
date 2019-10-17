@@ -6,11 +6,12 @@ The goal of this task is to run a container in GCP.
 
 You are the CEO of a stealth startup and you have just completed building a minimal viable product (MVP) of your application.  You need to deploy a demo of this application online to show to angel investors in order to secure additional funding for your startup.  Your application consists of a trained model based on an example data set consisting of student and employment records and it predicts job placement for engineering jobs with salary ranges.  You have decided to deploy this application to Google Cloud Platform using Google Kubernetes Engine.
 
+Keep the context in mind during the experiment.
+
 This directory contains:
 
-- `main.go` contains your application. It is an HTTP server that responds to all HTTP
-  requests with a  `Hello, world!` response.
-- `Dockerfile` is used to build the Docker image for the application. This file will copy all contents of this directory in the image.
+- `main.go` contains your application code. 
+- `Dockerfile` is used to build the Docker image for the application. This file will copy all contents of this directory into the image.
 
 ## Task
 
@@ -63,7 +64,6 @@ gcloud container clusters get-credentials hello-cluster
 
 ```
 kubectl create deployment hello-web --image=<image_you_uploaded>
-kubectl expose deployment hello-web --type=LoadBalancer --port 8080 --target-port 8080
 ```
 
 **5. Ensure that the container is running.**
@@ -76,10 +76,9 @@ Make sure that the container status is "Running".
 
 If you see "ImagePullBackoff", your image could not be pulled. You may have specified the image name incorrectly. Follow step 6 and return to step 4.
 
-**6. Remove the deployment and service.**
+**6. Remove the deployment.**
 
 ```
-kubectl delete service hello-web
 kubectl delete deployment hello-web
 ```
 
