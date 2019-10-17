@@ -1,6 +1,6 @@
 # Deploy a container in GCP
 
-The goal of this task is to run a container in GPC.
+The goal of this task is to run a container in GCP.
 
 ## Context
 
