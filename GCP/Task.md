@@ -35,7 +35,14 @@ docker build -t <your_image_name> .
 
 **2. Upload your image to an online registry provider.**
 
-You will use the command line to upload your image. You have the choice of uploading your container in [Docker Hub](https://docs.docker.com/engine/reference/commandline/push/) or [Google Container Registry](https://cloud.google.com/container-registry/docs/quickstart).  Regardless of where you store your image, you will be able to run the container with Google Kuberrnetes Engine.
+You will use the command line to upload your image. 
+
+You have the choice of uploading your container in:
+
+- [Docker Hub](https://docs.docker.com/engine/reference/commandline/push/); or 
+- [Google Container Registry](https://cloud.google.com/container-registry/docs/quickstart).  
+
+Regardless of where you store your image, you will be able to run the container with Google Kuberrnetes Engine.
 
 - If you choose Docker Hub, you'll be using cmeiklejohn's credentials, so your container will have to be named 'cmeiklejohn/<your_image_name>'. 
 - If you choose Google Container Registry, a ``` ${PROJECT_ID} ``` will be provided to you.
