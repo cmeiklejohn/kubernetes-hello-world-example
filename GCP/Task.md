@@ -4,10 +4,10 @@ The goal of this task is to run a container in GPC.
 
 ## Context
 
-You are the CEO of a startup and have been working on your application for the past 3 years. 
-Your application will be bought by Google for $1M in the in 2 days.
-As part of the purchase, Google wants you to give a live demo of you application to its employees.
-You decide to create a Docker container with your application and deploy online for the demo.
+You are the CEO of a stealth startup and you have just completed building a minimal viable product (MVP) of your application.  
+You need to deploy a demo of this application online to show to angel investors in order to secure additional funding for your startup. 
+Your application consists of a trained model based on an example data set consisting of student and employment records and it predicts job placement for engineering jobs with salary ranges.
+You have decided to deploy this application to Google Cloud Platform using Google Kubernetes Engine.
 
 This directory contains:
 
