@@ -4,10 +4,7 @@ The goal of this task is to run a container in GPC.
 
 ## Context
 
-You are the CEO of a stealth startup and you have just completed building a minimal viable product (MVP) of your application.  
-You need to deploy a demo of this application online to show to angel investors in order to secure additional funding for your startup. 
-Your application consists of a trained model based on an example data set consisting of student and employment records and it predicts job placement for engineering jobs with salary ranges.
-You have decided to deploy this application to Google Cloud Platform using Google Kubernetes Engine.
+You are the CEO of a stealth startup and you have just completed building a minimal viable product (MVP) of your application.  You need to deploy a demo of this application online to show to angel investors in order to secure additional funding for your startup.  Your application consists of a trained model based on an example data set consisting of student and employment records and it predicts job placement for engineering jobs with salary ranges.  You have decided to deploy this application to Google Cloud Platform using Google Kubernetes Engine.
 
 This directory contains:
 
@@ -38,7 +35,7 @@ docker build -t <your_image_name> .
 
 **2. Upload your image to an online registry provider.**
 
-You will use the command line to upload your image. You have the choice of uploading your container in [Docker Hub](https://docs.docker.com/engine/reference/commandline/push/) or [Google Container Registry](https://cloud.google.com/container-registry/docs/quickstart).
+You will use the command line to upload your image. You have the choice of uploading your container in [Docker Hub](https://docs.docker.com/engine/reference/commandline/push/) or [Google Container Registry](https://cloud.google.com/container-registry/docs/quickstart).  Regardless of where you store your image, you will be able to run the container with Google Kuberrnetes Engine.
 
 - If you choose Docker Hub, credential will be provided to you. 
 - If you choose Google Container Registry, a ``` ${PROJECT_ID} ``` will be provided to you.
