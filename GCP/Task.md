@@ -40,7 +40,7 @@ You will use the command line to upload your image.
 You have the choice of uploading your container in either:
 
 - [Docker Hub](https://docs.docker.com/engine/reference/commandline/push/) 
-- [Google Container Registry](https://cloud.google.com/container-registry/docs/quickstart).  
+- [Google Container Registry](https://cloud.google.com/container-registry/docs/quickstart) 
 
 Regardless of which choice you make to you store your image, you will be able to run the container with Google Kuberrnetes Engine.
 
