@@ -28,7 +28,7 @@ In the following paragraphs, we describe each step in detail and, in some steps,
 
 **1. Build the image with Docker.**
 
-*Please note, your image name cannot contain and underscore.*
+*Please note, your image name cannot contain an underscore.*
 
 ```
 git clone https://github.com/cmeiklejohn/kubernetes-hello-world-example.git
