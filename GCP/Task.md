@@ -37,14 +37,14 @@ docker build -t <your_image_name> .
 
 You will use the command line to upload your image. You have the choice of uploading your container in [Docker Hub](https://docs.docker.com/engine/reference/commandline/push/) or [Google Container Registry](https://cloud.google.com/container-registry/docs/quickstart).  Regardless of where you store your image, you will be able to run the container with Google Kuberrnetes Engine.
 
-- If you choose Docker Hub, credential will be provided to you. 
+- If you choose Docker Hub, you'll be using cmeiklejohn's credentials, so your container will have to be named 'cmeiklejohn/<your_image_name>'. 
 - If you choose Google Container Registry, a ``` ${PROJECT_ID} ``` will be provided to you.
 
+*If you need to change the name of the image, you can rebuild it using `docker build -t` with the new name.*
 
 **3. Create a Google Kubernetes Engine.**
 
 ```
-gcloud config set project $PROJECT_ID
 gcloud config set compute/zone us-east1-b
 gcloud container clusters create hello-cluster --num-nodes=2
 gcloud container clusters get-credentials hello-cluster
