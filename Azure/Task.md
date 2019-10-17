@@ -44,7 +44,7 @@ You have the choice of uploading your container in either of the following.  It 
 - [Docker Hub](https://docs.docker.com/engine/reference/commandline/push/) 
 - [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-docker-cli) 
 
-Regardless of which choice you make to you store your image, you will be able to run the container with Azure Kuberrnetes Service.
+Regardless of which choice you make to store your image, you will be able to run the container with Azure Kuberrnetes Service.
 
 - If you choose Docker Hub, you'll be using cmeiklejohn's credentials, so your container will have to be named 'cmeiklejohn/<your_image_name>'. 
 
