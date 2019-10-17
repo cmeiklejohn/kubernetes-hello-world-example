@@ -4,7 +4,7 @@ The goal of this task is to run a container in Azure.
 
 ## Context
 
-You are the CEO of a stealth startup and you have just completed building a minimal viable product (MVP) of your application.  You need to deploy a demo of this application online to show to angel investors in order to secure additional funding for your startup.  Your application consists of a trained model based on an example data set consisting of student and employment records and it predicts job placement for engineering jobs with salary ranges.  You have decided to deploy this application to Google Cloud Platform using Google Kubernetes Engine.
+You are the CEO of a stealth startup and you have just completed building a minimal viable product (MVP) of your application.  You need to deploy a demo of this application online to show to angel investors in order to secure additional funding for your startup.  Your application consists of a trained model based on an example data set consisting of student and employment records and it predicts job placement for engineering jobs with salary ranges.  You have decided to deploy this application to Microsoft Azure using Azure Kubernetes Service.
 
 Keep the context in mind during the experiment.
 
@@ -18,7 +18,7 @@ This directory contains:
 The following instructions indicate the steps that need to be followed to complete the task:
 1. Build the image with Docker.
 2. Upload your image to an online registry provider.
-3. Create a Google Kubernetes Engine.
+3. Create a Azure Kubernetes Service.
 4. Launch the image using Kubernetes on the cluster you created.
 5. Ensure that the container is running.
 6. Remove the deployment and service.
@@ -47,7 +47,7 @@ You have the choice of uploading your container in either of the following.  It 
 - [Docker Hub](https://docs.docker.com/engine/reference/commandline/push/) 
 - [Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-docker-cli) 
 
-Regardless of which choice you make to you store your image, you will be able to run the container with Google Kuberrnetes Engine.
+Regardless of which choice you make to you store your image, you will be able to run the container with Azure Kuberrnetes Service.
 
 - If you choose Docker Hub, you'll be using cmeiklejohn's credentials, so your container will have to be named 'cmeiklejohn/<your_image_name>'. 
 
