@@ -47,7 +47,7 @@ You have the choice of uploading your container in either of the following.  It 
 Regardless of which choice you make to you store your image, you will be able to run the container with Google Kuberrnetes Engine.
 
 - If you choose Docker Hub, you'll be using cmeiklejohn's credentials, so your container will have to be named 'cmeiklejohn/<your_image_name>'.  You are already logged into Docker in the VM that was provided to you.
-- If you choose Google Container Registry, a ``` ${PROJECT_ID} ``` will be provided to you.  You are already logged into GCP in the VM that was provided to you.
+- If you choose Google Container Registry, a ``` ${PROJECT_ID} ``` will be provided to you.  You are already logged into GCP in the VM that was provided to you using cmeiklejohn's account.
 
 *If you need to change the name of the image, you can rebuild it using `docker build -t` with the new name.*
 
