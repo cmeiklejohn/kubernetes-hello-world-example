@@ -18,7 +18,7 @@ This directory contains:
 The following instructions indicate the steps that need to be followed to complete the task:
 1. Build the image with Docker.
 2. Upload your image to an online registry provider.
-3. Create a Google Kubernetes Engine.
+3. Create a Azure Elastic Kubernetes Service.
 4. Launch the image using Kubernetes on the cluster you created.
 5. Ensure that the container is running.
 6. Remove the deployment and service.
