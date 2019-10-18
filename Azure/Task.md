@@ -6,7 +6,7 @@ The goal of this task is to run a container in Azure.
 
 You are the lead engineer of a popular mobile application startup that builds an application that performs job placement for engineering jobs and predicts the salary ranges of the job applicants.   Your application does this job placement and salary range prediction using a confidental model trained using a data set of student and employment records.  You're trying to raise another round of funding, and therefore you need to show off the new version of your application.  You've decided to deploy this application to Microsoft Azure using Azure Kubernetes Service.
 
-Keep the context in mind during the experiment.
+Keep the context in mind during the experiment.  Security is a factor during the following steps.
 
 This directory contains:
 
