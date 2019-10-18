@@ -4,7 +4,7 @@ The goal of this task is to run a container in AWS.
 
 ## Context
 
-You are the lead engineer of a popular mobile application startup that builds an application that performs job placement for engineering jobs and predicts the salary ranges of the job applicants.   Your application does this job placement and salary range prediction using a confidental model trained using a data set of student and employment records.  You're trying to raise another round of funding, and therefore you need to show off the new version of your application.  You've decided to deploy this application to Microsoft Azure using Azure Kubernetes Service.
+You are the lead engineer of a popular mobile application startup that builds an application that performs job placement for engineering jobs and predicts the salary ranges of the job applicants.   Your application does this job placement and salary range prediction using a confidental model trained using a data set of student and employment records.  You're trying to raise another round of funding, and therefore you need to show off the new version of your application.  You've decided to deploy this application to Amazon Web Services using Amazon Elastic Kubernetes Service.
 
 Keep the context in mind during the experiment.  Security is a factor during the following steps.
 
@@ -18,7 +18,7 @@ This directory contains:
 The following instructions indicate the steps that need to be followed to complete the task:
 1. Build the image with Docker.
 2. Upload your image to an online registry provider.
-3. Create a Azure Elastic Kubernetes Service.
+3. Create a Amazon Elastic Kubernetes Service cluster.
 4. Launch the image using Kubernetes on the cluster you created.
 5. Ensure that the container is running.
 6. Remove the deployment and service.
