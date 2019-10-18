@@ -28,7 +28,7 @@ In the following paragraphs, we describe each step in detail and, in some steps,
 
 **1. Build the image with Docker.**
 
-*Please note, your image name cannot contain an underscore.*
+*Please note, your image name cannot contain capital letters or underscores.*
 
 ```
 cd kubernetes-hello-world-example
