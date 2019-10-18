@@ -37,7 +37,7 @@ docker build -t <your_image_name> .
 
 **2. Upload your image to an online registry provider.**
 
-You will use the command line to upload your image. 
+You will use the command line to upload your image.
 
 You have the choice of uploading your container in either of the following.  It might be useful to view each documentation using the following links before making your choice.
 
@@ -46,19 +46,24 @@ You have the choice of uploading your container in either of the following.  It 
 
 Regardless of which choice you make to store your image, you will be able to run the container with Azure Kuberrnetes Service.
 
-- If you choose Docker Hub, you'll be using cmeiklejohn's credentials, so your container will have to be named 'cmeiklejohn/<your_image_name>'. 
+- If you choose Azure Container Registry, you'll have to create a new container registry using the CLI.  You are already logged into ACR in the VM that was provided to you.
+- If you choose Docker Hub, you'll be using cmeiklejohn's credentials, so your container will have to be named 'cmeiklejohn/<your_image_name>'.  You are already logged into Docker in the VM that was provided to you.
 
 *If you need to change the name of the image, you can rebuild it using `docker build -t` with the new name.*
 
 **3. Create an cluster with Azure Kubernetes Service.**
 
+*If you've already created a resource group earlier, you'd want to use that name here instead of `hello-app`.*
+
 ```
 az group create --name hello-app --location eastus
+
 az aks create --resource-group hello-app \
     --name hello-cluster \
     --node-count 1 \
     --enable-addons monitoring \
     --generate-ssh-keys
+
 az aks get-credentials --resource-group hello-app --name hello-cluster
 ```
 
@@ -76,7 +81,8 @@ kubectl get pods
 
 Make sure that the container status is "Running". 
 
-If you see "ImagePullBackoff", your image could not be pulled. You may have specified the image name incorrectly. Follow step 6 and return to step 4.
+- If you see "ImagePullBackoff", your image could not be pulled. You may have specified the image name incorrectly. Follow step 6 and return to step 4.
+- If you see "ErrImgPull", your image could not be pulled because your cluster does not have permissions to the images inside of the container registry.  You may need to search for how to grant access from ACR to your AKS cluster.  Follow step 6, grant any required permissions, and return to step 4 to try again.
 
 **6. Remove the deployment and service.**
 
