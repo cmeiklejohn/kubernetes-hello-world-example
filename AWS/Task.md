@@ -46,7 +46,8 @@ You have the choice of uploading your container in either of the following.  It 
 
 Regardless of which choice you make to you store your image, you will be able to run the container with Amazon Elastic Kuberrnetes Service.
 
-- If you choose Docker Hub, you'll be using cmeiklejohn's credentials, so your container will have to be named 'cmeiklejohn/<your_image_name>'. 
+- If you choose Docker Hub, you'll be using cmeiklejohn's credentials, so your container will have to be named 'cmeiklejohn/<your_image_name>'.   You are already logged into Docker in the VM that was provided to you.
+- If you choose ECR, you'll need to create a container registry and push your image to it using the Amazon CLI.  You are already logged into ECR in the VM that was provided to you.
 
 *If you need to change the name of the image, you can rebuild it using `docker build -t` with the new name.*
 
