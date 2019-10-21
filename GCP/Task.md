@@ -18,17 +18,15 @@ This directory contains:
 The following instructions indicate the steps that need to be followed to complete the task:
 1. Build the image with Docker.
 2. Upload your image to an online registry provider.
-3. Create a Google Kubernetes Engine.
-4. Launch the image using Kubernetes on the cluster you created.
-5. Ensure that the container is running.
-6. Remove the deployment and service.
-7. Terminate the cluster.
+3. Launch the image using the Kubernetes cluster provided to you.
+4. Ensure that the container is running.
+5. Remove the deployment and service.
 
 In the following paragraphs, we describe each step in detail and, in some steps, we provide commands that you need to execute to complete that subtask. For the subtasks in which we do not specific a command, you need to find those commands online.
 
 **1. Build the image with Docker.**
 
-*Please note, your image name cannot contain capital letters or underscores.*
+*Please note, your image name cannot contain capital letters or underscores. You must use your Andrew username as part of the image name.*
 
 ```
 cd kubernetes-hello-world-example
@@ -49,23 +47,17 @@ Regardless of which choice you make to you store your image, you will be able to
 - If you choose Docker Hub, you'll be using cmeiklejohn's credentials, so your container will have to be named 'cmeiklejohn/<your_image_name>'.  You are already logged into Docker in the VM that was provided to you.
 - If you choose Google Container Registry, a ``` ${PROJECT_ID} ``` will be provided to you.  You are already logged into GCP in the VM that was provided to you using cmeiklejohn's account.
 
-*If you need to change the name of the image, you can rebuild it using `docker build -t` with the new name.*
+*If you need to change the name of the image, you can rebuild it using `docker build -t` with the new name. You must use your Andrew username as part of the image name.*
 
-**3. Create a Google Kubernetes Engine.**
-
-```
-gcloud config set compute/zone us-east1-b
-gcloud container clusters create hello-cluster --num-nodes=2
-gcloud container clusters get-credentials hello-cluster
-```
-
-**4. Launch the image using Kubernetes on the cluster you created.**
+**3. Launch the image using the Kubernetes cluster provided to you.**
 
 ```
-kubectl create deployment hello-web --image=<image_you_uploaded>
+kubectl create deployment <deployment_name> --image=<image_you_uploaded>
 ```
 
-**5. Ensure that the container is running.**
+*You must use your Andrew username as part of the deployment name.*
+
+**4. Ensure that the container is running.**
 
 ```
 kubectl get pods
@@ -73,16 +65,11 @@ kubectl get pods
 
 Make sure that the container status is "Running". 
 
-If you see "ImagePullBackoff", your image could not be pulled. You may have specified the image name incorrectly. Follow step 6 and return to step 4.
+If you see "ImagePullBackoff", your image could not be pulled. You may have specified the image name incorrectly. Follow step 5 and return to step 3.
 
-**6. Remove the deployment.**
-
-```
-kubectl delete deployment hello-web
-```
-
-**7. Terminate the cluster.**
+**5. Remove the deployment.**
 
 ```
-gcloud container clusters delete hello-cluster
+kubectl delete service <deployment_name>
+kubectl delete deployment <deployment_name>
 ```
