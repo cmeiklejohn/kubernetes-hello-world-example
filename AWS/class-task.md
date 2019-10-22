@@ -13,7 +13,7 @@ This directory contains a `Dockerfile` to build the graduate admissions system s
 
 The following instructions indicate the steps that need to be followed to complete this task:
 
-0. Pull the task container
+0. Pull and run the task container.
 1. Build the image with Docker.
 2. Upload your image to an online container image registry.
 3. Launch the image using the Kubernetes cluster provided to you.
@@ -21,7 +21,7 @@ The following instructions indicate the steps that need to be followed to comple
 
 In the following paragraphs, we describe each step in detail and, in some steps, we provide commands that you need to execute to complete that subtask. For the subtasks in which we do not specific a command, you need to find those commands online.
 
-**0. Pull the task container.**
+**0. Pull and run the task container.**
 
 - Go to GitHub.com. 
 - Click your username.
@@ -35,6 +35,7 @@ In the following paragraphs, we describe each step in detail and, in some steps,
 ```
 docker login docker.pkg.github.com -u <your_github_username> -p TOKEN
 docker pull docker.pkg.github.com/cmu-313/kubernetes/aws:latest
+docker run -v /var/run/docker.sock:/var/run/docker.sock -it docker.pkg.github.com/cmu-313/kubernetes/aws:latest
 ```
 
 **1. Build the image with Docker.**
