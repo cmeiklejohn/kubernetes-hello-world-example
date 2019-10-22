@@ -80,3 +80,7 @@ Make sure that the container status is `Running`. If you see this message, you a
 
 - If you see `ImagePullBackoff`, your image could not be pulled. You may have specified the image name incorrectly. Run `kubectl delete deployment <deployment_name>` and return to step 3.
 - If you see `ErrImgPull`, your image could not be accessed by your Kubernetes cluster because it does not have permissions to the image you pushed to the container registry. You may need to search how to grant access from your container registry to your Kubernetes cluster. Run `kubectl delete deployment <deployment_name>`, grant any required permissions, and return to step 3 to try again.
+
+## Survey
+
+If you desire, please complete the following the [survey](https://forms.gle/V6oeddhdfbn7oZVMA)
