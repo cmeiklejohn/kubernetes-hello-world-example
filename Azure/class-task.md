@@ -44,6 +44,7 @@ docker run -v /var/run/docker.sock:/var/run/docker.sock -it docker.pkg.github.co
 *Please note, your image name cannot contain capital letters or underscores. You must use your Andrew username as part of the image name.*
 
 ```
+cd code
 docker build -t <image_name> . 
 ```
 
