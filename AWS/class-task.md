@@ -15,12 +15,15 @@ This directory contains a `Dockerfile` to build the graduate admissions system s
 
 The following instructions indicate the steps that need to be followed to complete this task:
 
+0. TODO
 1. Build the image with Docker.
 2. Upload your image to an online container image registry.
 3. Launch the image using the Kubernetes cluster provided to you.
 4. Ensure that the container is running.
 
 In the following paragraphs, we describe each step in detail and, in some steps, we provide commands that you need to execute to complete that subtask. For the subtasks in which we do not specific a command, you need to find those commands online.
+
+**0. TODO.**
 
 **1. Build the image with Docker.**
 
