@@ -13,7 +13,7 @@ This directory contains a `Dockerfile` to build the graduate admissions system s
 
 The following instructions indicate the steps that need to be followed to complete this task:
 
-0. TODO
+0. Pull the task container
 1. Build the image with Docker.
 2. Upload your image to an online container image registry.
 3. Launch the image using the Kubernetes cluster provided to you.
@@ -21,7 +21,21 @@ The following instructions indicate the steps that need to be followed to comple
 
 In the following paragraphs, we describe each step in detail and, in some steps, we provide commands that you need to execute to complete that subtask. For the subtasks in which we do not specific a command, you need to find those commands online.
 
-**0. TODO.**
+**0. Pull the task container.**
+
+- Go to GitHub.com. 
+- Click your username.
+- Click settings.
+- Click developer settings.
+- Click personal access tokens.
+- Click generate new token.
+- Grant permision `read:packages`, `write:packages`, `delete:packages`, and `repo`.
+- The output will be the `TOKEN` that you will use in the next command.
+
+```
+docker login docker.pkg.github.com -u <your_github_username> -p TOKEN
+docker pull docker.pkg.github.com/cmu-313/kubernetes/aws:latest
+```
 
 **1. Build the image with Docker.**
 
@@ -40,7 +54,7 @@ You have the choice of uploading your image using either of the following.  It m
 - [Docker Hub](https://docs.docker.com/engine/reference/commandline/push/) 
 - [Amazon Elastic Container Registry](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html)
 
-Regardless of which choice you make to you store your image, you will be able to run the container with Amazon Elastic Kuberrnetes Service.
+Regardless of which choice you make to you store your image, you will be able to run the container with Amazon Elastic Kubernetes Service.
 *If you need to change the name of the image, you can rebuild it using `docker build -t` with the new name. You must use your Andrew username as part of the image name.*
 
 - If you choose Docker Hub, you'll be using cmu-313's credentials, so your image will have to be named `cmu-313/<image_name>`.   You are already logged into Docker in the VM that was provided to you.
