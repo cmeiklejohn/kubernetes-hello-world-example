@@ -58,8 +58,8 @@ You have the choice of uploading your image using either of the following.  It m
 Regardless of which choice you make to you store your image, you will be able to run the container with Amazon Elastic Kubernetes Service.
 *If you need to change the name of the image, you can rebuild it using `docker build -t` with the new name. You must use your Andrew username as part of the image name.*
 
-- If you choose Docker Hub, you'll be using cmu-313's credentials, so your image will have to be named `cmu-313/<image_name>`.   You are already logged into Docker in the VM that was provided to you.
-- If you choose ECR, you'll need to create a container registry and push your image to it using the Amazon CLI.  You are already logged into ECR in the VM that was provided to you using cmu-313's account.
+- If you choose Docker Hub, you'll be using cmu313's credentials, so your image will have to be named `cmu313/<image_name>`.   You are already logged into Docker in the VM that was provided to you.
+- If you choose ECR, you'll need to create a container registry and push your image to it using the Amazon CLI.  You are already logged into ECR in the VM that was provided to you using cmu313's account.
 
 **3. Launch the image using the Kubernetes cluster provided to you.**
 
