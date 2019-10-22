@@ -7,8 +7,6 @@ The goal of this task is to run a container in AWS.
 You are the lead engineer on the graduate admissions system. A version of the system has been extended with a model to predict whether a student should be admitted or not. The model has been trained on confidential student records and information. Your manager at CMU has asked you 
 to deploy this version of the application for the 2020 REU program. You have decided to deploy this application to Amazon Web Services using Amazon Elastic Kubernetes Service.
 
-The teams that correctly deploy the application will receive free swag.
-
 This directory contains a `Dockerfile` to build the graduate admissions system source code. 
 
 ## Task
