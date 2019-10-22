@@ -35,7 +35,7 @@ In the following paragraphs, we describe each step in detail and, in some steps,
 ```
 docker login docker.pkg.github.com -u <your_github_username> -p TOKEN
 docker pull docker.pkg.github.com/cmu-313/kubernetes/aws:latest
-docker run -v /var/run/docker.sock:/var/run/docker.sock -it docker.pkg.github.com/cmu-313/kubernetes/aws:latest
+docker run -v /var/run/docker.sock:/var/run/docker.sock --privileged -it docker.pkg.github.com/cmu-313/kubernetes/aws:latest
 ```
 
 **1. Build the image with Docker.**
