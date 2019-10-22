@@ -53,8 +53,8 @@ You will use the command line to upload your image.
 
 You have the choice of uploading your image using either of the following.  It may be useful to view the documentation by using the following links prior to making your choice.
 
-- [Docker Hub](https://docs.docker.com/engine/reference/commandline/push/) 
-- [Amazon Elastic Container Registry](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html)
+- Docker Hub (https://docs.docker.com/engine/reference/commandline/push/) 
+- Amazon Elastic Container Registry (https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html)
 
 Regardless of which choice you make to you store your image, you will be able to run the container with Amazon Elastic Kubernetes Service.
 *If you need to change the name of the image, you can rebuild it using `docker build -t` with the new name. You must use your Andrew username as part of the image name.*
