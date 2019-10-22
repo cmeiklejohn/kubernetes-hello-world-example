@@ -26,13 +26,14 @@ In the following paragraphs, we describe each step in detail and, in some steps,
 **0. Pull the task container.**
 
 - Go to GitHub.com. 
-- Click your username.
+- Click your user profile (on the top-right corner).
 - Click settings.
 - Click developer settings.
 - Click personal access tokens.
 - Click generate new token.
-- Grant permision `read:packages`, `write:packages`, `delete:packages`, and `repo`.
+- Grant permision `repo`, `write:packages`, `read:packages`, and `delete:packages`.
 - The output will be the `TOKEN` that you will use in the next command.
+
 ```
 docker login docker.pkg.github.com -u <your_github_username> -p TOKEN
 docker pull docker.pkg.github.com/cmu-313/kubernetes/azure:latest
