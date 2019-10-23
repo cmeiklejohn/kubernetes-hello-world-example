@@ -4,8 +4,7 @@ The goal of this task is to run a container in AWS.
 
 ## Context
 
-You are the lead engineer on the graduate admissions system. A version of the system has been extended with a model to predict whether a student should be admitted or not. The model has been trained on confidential student records and information. Your manager at CMU has asked you 
-to deploy this version of the application for the 2020 REU program. You have decided to deploy this application to Amazon Web Services using Amazon Elastic Kubernetes Service.
+You are the lead engineer on the graduate admissions system. A version of the system has been extended with a model to predict whether a student should be admitted or not. The model has been trained on confidential student records and information. Your manager at CMU has asked you to deploy this version of the application for the 2020 REU program, such that the admission committee members can easily access the application. However, your manager also requested that you should be mindful of the fact that this application contains a model trained on confidential data. You have decided to deploy this application to Amazon Web Services using Amazon Elastic Kubernetes Service.
 
 This directory contains a `Dockerfile` to build the graduate admissions system source code. 
 
@@ -83,4 +82,4 @@ Make sure that the container status is `Running`. If you see this message, you a
 
 ## Survey
 
-If you desire, please complete the following the [survey](https://forms.gle/V6oeddhdfbn7oZVMA)
+If you desire, please complete the following the [survey](https://forms.gle/m13pd3XKrHmU3Weo6)
