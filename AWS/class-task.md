@@ -28,7 +28,7 @@ In the following paragraphs, we describe each step in detail and, in some steps,
 - Click developer settings.
 - Click personal access tokens.
 - Click generate new token.
-- Grant permision `repo`, `write:packages`, `read:packages`, and `delete:packages`.
+- Grant permission `repo`, `write:packages`, `read:packages`, and `delete:packages`.
 - The output will be the `TOKEN` that you will use in the next command.
 
 ```
