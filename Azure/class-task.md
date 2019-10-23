@@ -84,4 +84,4 @@ Make sure that the container status is `Running`. If you see this message, you a
 
 ## Survey
 
-If you desire, please complete the following the [survey](https://forms.gle/JUx5yRBQKsAwhC3c9)
+If you desire, please complete the following the [survey](https://forms.gle/2iQFAPdzBKJ1Z1Sw8)
