@@ -52,6 +52,5 @@ Make sure that the container status is `Running`. If you see this message, you a
 **5. Remove the deployment.**
 
 ```
-kubectl delete service <deployment_name>
 kubectl delete deployment <deployment_name>
 ```
