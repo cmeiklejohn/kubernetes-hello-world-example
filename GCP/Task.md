@@ -44,9 +44,10 @@ kubectl create deployment <deployment_name> --image=<image_you_uploaded>
 kubectl get pods
 ```
 
-Make sure that the container status is "Running". 
+Make sure that the container status is `Running`. If you see this message, you are done with the task. Now, please help your teammates to complete their task. If your container status is not `Running`, then:
 
-If you see "ImagePullBackoff", your image could not be pulled. You may have specified the image name incorrectly. Follow step 5 and return to step 3.
+- If you see `ImagePullBackoff`, your image could not be pulled. You may have specified the image name incorrectly. Run `kubectl delete deployment <deployment_name>` and return to step 3.
+- If you see `ErrImgPull`, your image could not be accessed by your Kubernetes cluster because it does not have permissions to the image you pushed to the container registry. You may need to search how to grant access from your container registry to your Kubernetes cluster. Run `kubectl delete deployment <deployment_name>`, grant any required permissions, and return to step 3 to try again.
 
 **5. Remove the deployment.**
 
