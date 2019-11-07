@@ -29,7 +29,7 @@ You will use the command line to upload your image.  Below, you will find a link
 
 - [Google Container Registry](https://cloud.google.com/container-registry/docs/quickstart) 
 
-*If you need to change the name of the image, you can rebuild it using `docker build -t` with the new name. You must use your Andrew username as part of the image name. You must use `exemplary-terra-256719` as the <project-id>.*
+*If you need to change the name of the image, you can rebuild it using `docker build -t` with the new name. You must use your Andrew username as part of the image name. You must use `exemplary-terra-256719` as the `<project-id>`.*
 
 **3. Launch the image using the Kubernetes cluster provided to you.**
 
