@@ -37,8 +37,6 @@ You will use the command line to upload your image.  Below, you will find a link
 kubectl create deployment hello-cluster --image=<image_you_uploaded>
 ```
 
-*You must use your Andrew username as part of the deployment name.*
-
 **4. Ensure that the container is running.**
 
 ```
@@ -53,5 +51,5 @@ Make sure that the container status is `Running`.  If your container status is n
 **5. Remove the deployment.**
 
 ```
-kubectl delete deployment <deployment_name>
+kubectl delete deployment hello-cluster
 ```
