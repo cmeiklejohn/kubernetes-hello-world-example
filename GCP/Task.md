@@ -2,7 +2,6 @@
 
 You are the Tech Lead Engineer at a startup software company that builds a web application for (1) job placement of software engineering jobs and (2) predicts the asking salary ranges of the applicants. The application performs these tasks using a prediction model training with confidential data from past users. The CEO of the company wants to raise another round of funding, and asked you to share a demo of the application, by sharing a link, to a potential investor. The CEO emphasized that the link shared with the investor must only expose the application for the investor to interact with it, but it must not expose any implementation of the application (e.g., source code, trained model, confidential data for training, etc.). You have decided to deploy the demo to Google Cloud Platform using Google Kubernetes Engine.
 
-
 ## Task
 
 The following instructions indicate the steps that need to be followed to complete the task:
@@ -16,7 +15,7 @@ In the following paragraphs, we describe each step in detail and, in some steps,
 
 **1. Build the image with Docker using the provided Dockerfile.**
 
-*Please note, your image name cannot contain capital letters or underscores. You must use your Andrew username as part of the image name.*
+*Please note, your image name cannot contain capital letters or underscores.*
 
 ```
 cd kubernetes-hello-world-example
@@ -29,7 +28,7 @@ You will use the command line to upload your image.  Below, you will find a link
 
 - [Google Container Registry](https://cloud.google.com/container-registry/docs/quickstart) 
 
-*If you need to change the name of the image, you can rebuild it using `docker build -t` with the new name. You must use your Andrew username as part of the image name. You must use `exemplary-terra-256719` as the `<project-id>`.*
+*If you need to change the name of the image, you can rebuild it using `docker build -t` with the new name. You must use `exemplary-terra-256719` as the `<project-id>`.*
 
 **3. Launch the image using the Kubernetes cluster provided to you.**
 
