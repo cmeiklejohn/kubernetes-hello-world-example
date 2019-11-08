@@ -7,7 +7,7 @@ The application uses a machine learning model:
 
 The CEO of your company is trying to raise another round of funding for your startup and has asked you to set up a demo of the new version of your application.  The CEO would like to provide a link to the new version of the application running in the Cloud to each potential investor in order to try out the application before it launches, if they want to.  The CEO has expressed concerns around the machine learning model being use in the cloud environment: they do not wish to potentially expose any information that should remain confidential nor put the company at risk by uploading this to the cloud.  
 
-You have the application code containing the trained model exposed as a REST service with authentication and a Dockerfile for building a Docker container containing the application code.  The CEO has given you access to the company's corporate Cloud account with Google Cloud Platform and has asked you to deploy the application using Google Kubernetes Engine.  
+You have the application code containing the trained model exposed as a REST service with authentication and a Dockerfile for building a Docker container containing the application code.  The CEO has given you access to the company's corporate Cloud account with Google Cloud Platform and has asked you to deploy the application using their existing Google Kubernetes Engine cluster.
 
 For this task, you'll need to do the following:  
 
