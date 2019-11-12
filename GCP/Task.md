@@ -22,7 +22,7 @@ To assist you in this task, we've provided you simplified instructions for runni
 
 The following instructions indicate the steps that need to be followed to complete the task:
 1. Build the image with Docker.
-2. Upload your image to an Google Container Reigstry.
+2. Upload your image to an Google Container Registry.
 3. Launch the image using the Kubernetes cluster provided to you.
 4. Ensure that the container is running.
 5. Remove the deployment and service.
