@@ -1,61 +1,56 @@
-# Deploy a container in AWS
+You are the lead engineer of a startup that builds an application for recruiters to determine the salary a given job applicant will be expected to be paid when they apply for a particular job.  
 
-The goal of this task is to run a container in AWS.
+The application uses a machine learning model:
 
-## Context
+* This model has been trained with confidential student data.
+* This model is considered intellectual property of the company.
 
-You are the lead engineer of a popular mobile application startup that builds an application that performs job placement for engineering jobs and predicts the salary ranges of the job applicants.   Your application does this job placement and salary range prediction using a confidental model trained using a data set of student and employment records.  You're trying to raise another round of funding, and therefore you need to show off the new version of your application.  You've decided to deploy this application to Amazon Web Services using Amazon Elastic Kubernetes Service.
+The CEO of your company is trying to raise another round of funding for your startup and has asked you to set up a demo of the new version of your application.  The CEO would like to provide a link to the new version of the application running in the Cloud to each potential investor in order to try out the application before it launches, if they want to.  The CEO has expressed concerns around the machine learning model being use in the cloud environment: they do not wish to potentially expose any information that should remain confidential nor put the company at risk by uploading this to the cloud.  
 
-Keep the context in mind during the experiment.  Security is a factor during the following steps.
+You have the application code containing the trained model exposed as a REST service with authentication and a Dockerfile for building a Docker container containing the application code.  The CEO has given you access to the company's corporate Cloud account with Amazon Web Services and has asked you to deploy the application using their existing Amazon Elastic Kubernetes Service cluster.
 
-This directory contains:
+For this task, you'll need to do the following:  
 
-- `main.go` contains your application code. 
-- `Dockerfile` is used to build the Docker image for the application. This file will copy all contents of this directory into the image.
+1. Build the image with Docker.
+2. Upload your image to an Amazon Container Reigstry.
+3. Launch the image using the Kubernetes cluster provided to you.
+4. Ensure that the container is running.
+
+To assist you in this task, we've provided you simplified instructions for running the container using Kubernetes that deploys a single instance of the application, enough for the required demo you'll make available to the potential investors.
 
 ## Task
 
 The following instructions indicate the steps that need to be followed to complete the task:
 1. Build the image with Docker.
-2. Upload your image to an online registry provider.
+2. Upload your image to an Amazon Container Registry.
 3. Launch the image using the Kubernetes cluster provided to you.
 4. Ensure that the container is running.
 5. Remove the deployment and service.
 
 In the following paragraphs, we describe each step in detail and, in some steps, we provide commands that you need to execute to complete that subtask. For the subtasks in which we do not specific a command, you need to find those commands online.
 
-**1. Build the image with Docker.**
+**1. Build the image with Docker using the provided Dockerfile.**
 
-*Please note, your image name cannot contain capital letters or underscores. You must use your Andrew username as part of the image name.*
+*Please note, your image name cannot contain capital letters or underscores.*
 
 ```
 cd kubernetes-hello-world-example
 docker build -t <your_image_name> . 
 ```
 
-**2. Upload your image to an online registry provider.**
+**2. Upload your image to Amazon Container Registry.**
 
-You will use the command line to upload your image. 
+You will use the command line to upload your image.  Below, you will find a link to the documentation.
 
-You have the choice of uploading your container in either of the following.  It might be useful to view each documentation using the following links before making your choice.
+- [Amazon Container Registry](https://docs.aws.amazon.com/AmazonECR/latest/userguide/what-is-ecr.html) 
 
-- [Docker Hub](https://docs.docker.com/engine/reference/commandline/push/) 
-- [Amazon Elastic Container Registry](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html)
-
-Regardless of which choice you make to you store your image, you will be able to run the container with Amazon Elastic Kuberrnetes Service.
-
-- If you choose Docker Hub, you'll be using cmeiklejohn's credentials, so your container will have to be named 'cmeiklejohn/<your_image_name>'.   You are already logged into Docker in the VM that was provided to you.
-- If you choose ECR, you'll need to create a container registry and push your image to it using the Amazon CLI.  You are already logged into ECR in the VM that was provided to you using cmeiklejohn's account.
-
-*If you need to change the name of the image, you can rebuild it using `docker build -t` with the new name. You must use your Andrew username as part of the image name.*
+*If you need to change the name of the image, you can rebuild it using `docker build -t` with the new name.*
 
 **3. Launch the image using the Kubernetes cluster provided to you.**
 
 ```
-kubectl create deployment <deployment_name> --image=<image_you_uploaded>
+kubectl create deployment hello-cluster --image=<image_you_uploaded>
 ```
-
-*You must use your Andrew username as part of the deployment name.*
 
 **4. Ensure that the container is running.**
 
@@ -63,13 +58,15 @@ kubectl create deployment <deployment_name> --image=<image_you_uploaded>
 kubectl get pods
 ```
 
-Make sure that the container status is "Running". 
+Make sure that the container status is `Running`.  If your container status is not `Running`, then:
 
-If you see "ImagePullBackoff", your image could not be pulled. You may have specified the image name incorrectly. Follow step 5 and return to step 3.
+- If you see `ImagePullBackoff`, your image could not be pulled. You may have specified the image name incorrectly. Run `kubectl delete deployment <deployment_name>` and return to step 3.
+- If you see `ErrImgPull`, your image could not be accessed by your Kubernetes cluster because it does not have permissions to the image you pushed to the container registry. You may need to search how to grant access from your container registry to your Kubernetes cluster. Run `kubectl delete deployment <deployment_name>`, grant any required permissions, and return to step 3 to try again.
+
+If your container is `Running`, you've successfully deployed your application.
 
 **5. Remove the deployment.**
 
 ```
-kubectl delete service <deployment_name>
-kubectl delete deployment <deployment_name>
+kubectl delete deployment hello-cluster
 ```
