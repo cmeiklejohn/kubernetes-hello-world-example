@@ -12,7 +12,7 @@ You have the application code containing the trained model exposed as a REST ser
 For this task, you'll need to do the following:  
 
 1. Build the image with Docker.
-2. Upload your image to an Azure Container Reigstry.
+2. Upload your image to a container repository.
 3. Launch the image using the Kubernetes cluster provided to you.
 4. Ensure that the container is running.
 
